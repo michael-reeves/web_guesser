@@ -10,15 +10,17 @@ end
 reset
 
 get '/' do
-  guess = params["guess"].to_i
+  guess          = params["guess"].to_i
+  cheat          = (params["cheat"] == 'true')
   message, color = check_guess(guess)
-  reset if color == 'green'
 
+  reset if color == 'green'
   # render the ERB template and pass in the number and message
   erb :index, :locals => { :number => @@secret_number,
                            :message => message,
                            :color => color,
-                           :guesses => @@guesses
+                           :guesses => @@guesses,
+                           :cheat => cheat
                          }
 end
 

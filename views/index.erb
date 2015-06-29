@@ -14,13 +14,16 @@
 
       <%= message %><br/>
       You have <%= guesses %> guesses remaining<br/>
-      <br/>
+      <%= "The number is #{number}<br/>" if cheat %><br/>
 
     <% end %>
 
     <form>
       <input type="text" name="guess" />
       <input type="submit" value="Guess!" />
+      <% if cheat %>
+      <input type="hidden" name="cheat" value="true">
+      <% end %>
     </form>
 
   </body>
