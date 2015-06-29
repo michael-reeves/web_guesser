@@ -12,8 +12,9 @@
   <body>
     <% if message %>
 
-      <%= message %><br/><br/>
-      <%= "The SECRET NUMBER is #{number}" if message == 'You got it right!' %>
+      <%= message %><br/>
+      You have <%= guesses %> guesses remaining<br/>
+      <br/>
 
     <% end %>
 
